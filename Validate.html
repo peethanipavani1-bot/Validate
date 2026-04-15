@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        .box {
+            background: white;
+            width: 320px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, textarea {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Contact Form</h2>
+    <form onsubmit="return checkForm()">
+        <input type="text" id="name" placeholder="Name"><br>
+        <input type="text" id="email" placeholder="Email"><br>
+        <input type="text" id="phone" placeholder="Phone"><br>
+        <textarea id="message" placeholder="Message"></textarea><br>
+        <p id="msg" class="error"></p>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+function checkForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let message = document.getElementById("message").value;
+
+    if (name === "" || email === "" || phone === "" || message === "") {
+        document.getElementById("msg").innerText = "Please fill all fields!";
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        document.getElementById("msg").innerText = "Invalid email!";
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>
+output:
+----------------------------------
+          Contact Form
+
+   [ Name Input Field          ]
+   [ Email Input Field         ]
+   [ Phone Input Field         ]
+   [ Message Text Area         ]
+
+     (Error message in red)
+
+           [ Submit ]
+----------------------------------
